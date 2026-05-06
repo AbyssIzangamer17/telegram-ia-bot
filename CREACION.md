@@ -9,33 +9,33 @@
 ## 1. Formateo del Ordenador e Instalación de Linux Mint
 
 **1.- Prompt**:  
-> "Oye, quiero formatear mi ordenador e instalarle Linux Mint desde cero. Tengo un USB, ¿cómo puedo hacerlo paso a paso?"
+> "Oye, mi ordenador va super lento y quiero empezar de cero. Quiero instalarle Linux Mint porque dicen que es fácil. Tengo un USB por ahí, ¿cómo lo hago?"
 
 **2.- Resultado**:  
-Se creó un USB bootable con Linux Mint usando herramientas como Rufus o Etcher. Se procedió al formateo completo del disco duro e instalación limpia de Linux Mint en el sistema.
+Se creó un USB bootable con Linux Mint usando Rufus. Se formateó el disco duro e instaló Linux Mint limpio.
 
 **3.- Problemas que ocasionó**:  
-- Pérdida de datos anteriores en el disco duro (solucionado haciendo backup previo).
-- Configuración inicial de drivers y periféricos tras la instalación.
+- Se borró todo lo que tenía antes (menos mal hice copia de seguridad).
+- Al principio no me funcionaba el wifi ni el sonido.
 
 **4.- Prompt que lo solucionó**:  
-> "Acabo de instalar Linux Mint y hay cosas que no van bien. ¿Me ayudas a configurar los drivers y dejar el sistema a punto para programar?"
+> "Acabo de instalar Linux Mint y no me va bien el wifi ni el sonido. ¿Me arreglas esto? Ah, y ponme también lo básico para poder programar."
 
 ---
 
 ## 2. Instalación de OpenCode
 
 **1.- Prompt**:  
-> "Quiero instalar OpenCode en mi Linux Mint. ¿Me dices los comandos y cómo comprobar que funciona bien?"
+> "Quiero usar OpenCode para hacer cosas con inteligencia artificial. ¿Me lo instalas en mi Linux Mint? Luego me dices cómo comprobar que funciona."
 
 **2.- Resultado**:  
-Se instaló OpenCode mediante los comandos apropiados para Linux Mint (basado en Ubuntu). Se verificó la instalación ejecutando `opencode --version` y configurando el entorno inicial.
+Se instaló OpenCode y funcionaba, se comprobó con `opencode --version`.
 
 **3.- Problemas que ocasionó**:  
-- Faltaban algunas dependencias en el sistema base de Linux Mint.
+- Faltaban algunas cosas que OpenCode necesitaba para funcionar.
 
 **4.- Prompt que lo solucionó**:  
-> "OpenCode parece que necesita más cosas en mi sistema. ¿Me instalas lo que falte para que funcione bien?"
+> "OpenCode me da errores de que faltan cosas. ¿Me instalas todo lo que necesita para que funcione bien?"
 
 ---
 
@@ -44,103 +44,94 @@ Se instaló OpenCode mediante los comandos apropiados para Linux Mint (basado en
 ### 3.1. Prompt Inicial - Creación del Bot Básico
 
 **1.- Prompt**:  
-> "Escucha, quiero hacer un bot de Telegram que sea inteligente. Necesito que me hagas uno que:
+> "Quiero hacer un bot para Telegram que hable conmigo usando inteligencia artificial. Que use OpenRouter para conectarse a esos modelos que son tan buenos.
 >
-> - Se conecte a OpenRouter para usar modelos de IA (como GPT-4o-mini)
-> - Que pueda hablar conmigo de forma natural
-> - Que si le pregunto algo que requiera búsqueda (noticias, precios, clima), busque en internet automáticamente
-> - Que use DuckDuckGo para buscar (que no necesite API key)
-> - Que me pueda decir el clima de cualquier ciudad usando wttr.in
-> - Que me diga la hora y fecha actual de Madrid
-> - Que tenga comandos básicos: /start, /help, /hora, /clima, /status
-> - Que las claves (Telegram y OpenRouter) las ponga en variables de entorno, no directamente en el código
-> - Que el código sea limpio y fácil de entender
-> - Que me responda con emojis y formato bonito (Markdown)
+> Lo que quiero es que:
+> - Le pueda escribir de forma normal y me conteste bien
+> - Si le pregunto algo que necesite buscar por internet (noticias, precios, clima...), que busque automáticamente
+> - Que use DuckDuckGo para buscar, que no me haga poner keys ni nada raro
+> - Que me diga el clima de donde le diga, usando wttr.in que dicen que es gratis
+> - Que me diga la hora y fecha actual de Madrid cuando le pregunte
+> - Que tenga comandos básicos: /start para empezar, /help para ayuda, /hora, /clima, /status
+> - Que me conteste con emojis y quede bonito
+> - Que las claves del bot y de OpenRouter las pongas en variables de entorno, no directamente en el código porque eso es peligroso
 >
-> ¿Puedes hacerme el código completo en un archivo `telegram_bot.py` para poder ejecutarlo ya?"
+> ¿Me puedes hacer el código completo en un archivo `telegram_bot.py` para poder ejecutarlo ya?"
 
 **2.- Resultado**:  
-Se generó el archivo `telegram_bot.py` con una implementación completa que incluye:
-- Integración con Telegram Bot API usando python-telegram-bot
-- Conexión a OpenRouter para modelos LLM (GPT-4o-mini)
-- Búsqueda web automática con DuckDuckGo cuando se detecta una pregunta
-- Consulta de clima con wttr.in (sin necesidad de API key)
-- Comandos: /start, /help, /status, /hora, /clima
-- Detección automática de preguntas sobre fecha/hora
-- Manejo de errores y logging
-- Variables de entorno para las claves (usando os.getenv)
+Se generó el archivo `telegram_bot.py` con:
+- Conexión a Telegram y OpenRouter
+- Búsqueda web con DuckDuckGo
+- Consulta de clima con wttr.in
+- Comandos básicos funcionando
+- Manejo de errores
 
 **3.- Problemas que ocasionó**:  
-- Al principio las API keys se pusieron directamente en el código (problema de seguridad).
+- Al mirar el código vi que las claves estaban puestas tal cual (peligroso).
 
 **4.- Prompt que lo solucionó**:  
-> "Oye, acabo de ver que las claves del bot y de OpenRouter están puestas directamente en el código en lugar de usar variables de entorno. ¿Me lo arreglas para que las lea con os.getenv? Ah, y hazme un archivo .env.example para saber qué tengo que poner. Por cierto, asegúrate de que el .gitignore tenga el .env para no subir las claves a GitHub."
+> "Oye, has puesto las claves directamente en el código. Cámbialo para que las lea de variables de entorno con os.getenv. Y hazme un archivo .env.example para saber qué tengo que poner. Ah, y que el .gitignore tenga el .env para no subir las claves a GitHub cuando lo suba."
 
 ---
 
-### 3.2. Prompt - Mejoras en la Detección de Intenciones
+### 3.2. Prompt - Mejorar Detección de lo que Pregunto
 
 **1.- Prompt**:  
-> "El bot funciona bien, pero quiero que sea más inteligente detectando cuándo tiene que buscar en internet. ¿Podrías añadirle una lista más completa de palabras clave para que sepa cuándo buscar? Cosas como 'noticias', 'precio', 'actual', 'reciente', 'cuánto', 'qué pasó', etc.
+> "El bot funciona bien, pero a veces no busca cuando debería. ¿Le puedes añadir más palabras para que sepa cuándo buscar en internet? Cosas como 'noticias', 'precio', 'actual', 'reciente', 'cuánto', 'qué pasó'...
 >
-> También que detecte cuando pregunto por la hora o la fecha, para responderme directamente sin pasar por la IA.
->
-> Ah, y que si le escribo 'qué hora es' o 'qué día es hoy' me lo diga sin buscar en internet."
+> Y otra cosa: cuando le pregunto 'qué hora es' o 'qué día es hoy', que me lo diga directamente sin pasar por la IA ni buscar en internet."
 
 **2.- Resultado**:  
 Se mejoró el bot con:
-- Lista ampliada de SEARCH_KEYWORDS para detectar cuándo buscar en internet
-- Lista de TIME_DATE_KEYWORDS para detectar preguntas sobre hora/fecha
-- Detección automática que responde directamente a preguntas de tiempo sin usar IA ni búsqueda
+- Más palabras para detectar cuándo buscar
+- Respuesta directa a preguntas de hora/fecha sin usar IA
 
 ---
 
-### 3.3. Prompt - Mejorar las Respuestas de la IA
+### 3.3. Prompt - Mejorar las Respuestas
 
 **1.- Prompt**:  
-> "Quiero que el bot sea más útil cuando responde con IA. ¿Podrías hacer que:
->
+> "Quiero que el bot sea más útil. ¿Podrías hacer que:
 > - Le pase la fecha y hora actual a la IA para que sepa qué día es
-> - Le diga a la IA que SI le pasamos resultados de búsqueda web, ESA es su única fuente de información (que no diga que no tiene información reciente)
-> - Que las respuestas sean concisas y usen emojis
-> - Que si la respuesta no tiene un emoji al principio, le ponga uno (🤖)"
+> - A la IA le digas que si le pasas resultados de búsqueda, use eso como información (que no diga que no sabe nada)
+> - Las respuestas sean cortas y usen emojis
+> - Si la respuesta no tiene un emoji al principio, que le ponga uno (🤖)"
 
 **2.- Resultado**:  
-Se mejoraron las respuestas de la IA con:
-- Fecha y hora actual pasada en el system prompt
-- Instrucción obligatoria para la IA sobre el uso de resultados de búsqueda
-- Formato consistente con emojis en todas las respuestas
+Las respuestas de la IA mejoraron mucho con:
+- Fecha y hora actual en el prompt
+- Instrucciones claras para usar resultados de búsqueda
+- Formato consistente con emojis
 
 ---
 
-### 3.4. Prompt - Scripts de Utilidad
+### 3.4. Prompt - Scripts para Gestionar el Bot
 
 **1.- Prompt**:  
-> "Para terminar, hazme unos scripts que me ayuden a gestionar el bot:
+> "Para terminar, hazme unos scripts que me ayuden:
 >
-> 1. Un `run_bot.sh` que asegure que solo hay una instancia del bot corriendo (usando lock files para que no se ejecuten dos a la vez)
-> 2. Un `remote_control.sh` para gestionar el bot remotamente
-> 3. Un `requirements.txt` con todas las dependencias necesarias
-> 4. Un `README.md` con badges, tablas y ejemplos de uso
+> 1. Un `run_bot.sh` que asegure que solo hay una instancia del bot (que no se ejecuten dos a la vez)
+> 2. Un `requirements.txt` con todo lo que necesito instalar
+> 3. Un `README.md` bonito con ejemplos de uso y todo en español
 >
-> Que todo esté en español y con buena pinta."
+> Que todo se vea profesional."
 
 **2.- Resultado**:  
-Se generaron todos los scripts y documentación solicitada con un nivel de calidad profesional.
+Se crearon todos los scripts y el README con buena pinta.
 
 ---
 
 ## Resumen del Proceso
 
-Todo el desarrollo del bot se realizó mediante prompts a OpenCode, sin programar nada manualmente. El proceso siguió estos pasos:
+Todo el desarrollo del bot se hizo hablando con OpenCode, sin escribir nada de código a mano. El proceso fue:
 
-1. **Preparación del entorno**: Formateo e instalación de Linux Mint
-2. **Herramientas**: Instalación de OpenCode
-3. **Desarrollo del bot**: Creación del bot con funcionalidades de IA, búsqueda web y clima
-4. **Mejoras iterativas**: Ajustes en la detección de intenciones y respuestas
-5. **Documentación y scripts**: Generación de README, requirements.txt y scripts de utilidad
+1. **Preparar el PC**: Formateo e instalación de Linux Mint
+2. **Instalar herramientas**: OpenCode
+3. **Crear el bot**: Pedirle a OpenCode que me lo hiciera con todas las funciones que quería
+4. **Mejoras**: Ir pidiendo mejoras poco a poco (búsqueda, clima, hora...)
+5. **Documentación**: README y este documento
 
-**Nota importante**: Ningún código fue escrito manualmente. Todo fue generado por OpenCode siguiendo las indicaciones dadas en los prompts.
+**Nota importante**: Todo fue generado por OpenCode. Yo solo pedía lo que quería y él me hacía el código.
 
 ---
 
