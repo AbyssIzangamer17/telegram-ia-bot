@@ -57,7 +57,7 @@ credentials.json
 service-account.json
 
 # Build artifacts
-*.pdf
+# *.pdf  # Comentado para permitir creacion_bot_izan.pdf
 *.docx
 *.pptx
 
