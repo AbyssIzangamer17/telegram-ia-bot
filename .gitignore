@@ -1,0 +1,137 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Dependencies
+node_modules/
+ package-lock.json
+bun.lock
+
+# Environment variables
+.env
+.env.local
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project specific
+.project_context.md
+.session_context.md
+bot_error.log
+/tmp/
+*.log
+
+# Secrets and credentials
+*.key
+*.pem
+credentials.json
+service-account.json
+
+# Build artifacts
+*.pdf
+*.docx
+*.pptx
+
+# Skills (user-specific)
+.agents/
+.opencode/
+
+# Secrets - NEVER COMMIT
+.env
+*.token
+*_key*
+*_secret*
+
+# System files
+.Xauthority
+.bash_history
+.dmrc
+.gtkrc-2.0
+.gtkrc-xfce
+.xsession-errors*
+.local/
+.cache/
+.config/
+.mozilla/
+.ssh/
+.linuxmint/
+.npm/
+.nvm/
+.bun/
+
+# Project specific - exclude old/backup files
+*_old.py
+*_bak*
+*_viejo*
+*_backup*
+bot_error.log
+*.log
+.bot_learning/
+.bot_stats/
+.telegram_screenshots/
+.token_stats/
+.ralph_tasks/
+.reminders/
+.productivity/
+.finetune/
+Desktop/
+Escritorio/
+Descargas/
+Documentos/
+Imágenes/
+Música/
+Vídeos/
+Público/
+Plantillas/
+
+# Exclude other projects
+telegram-ia-bot/
+ollama/
+.codex/
+
+# Temp and build
+__pycache__/
+*.pyc
+*.pdf
+*.docx
+
+# Python packages
+.local/lib/
+.local/bin/
+
+# Logs
+logs/
+*.log
+docs/adr/0004-environment-variables-secrets.md
+PRODUCTION_AUDIT_REPORT.md
+TECHNICAL_MEMORY.md
+TECHNICAL_MEMORY.pdf
